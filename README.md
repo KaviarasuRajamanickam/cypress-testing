@@ -21,7 +21,7 @@ https://github.com/KaviarasuRajamanickam/cypress-dev
 
 ## Installation
 
-- Hope you have installed `node`. if not, please [https://nodejs.org/en/download/](#Download) from here and install
+- Hope you have installed `node`. if not, please [Download](#https://nodejs.org/en/download/) from here and install
 
 ### Clone
 
@@ -73,3 +73,39 @@ it('Check the remaining characters of the input', () => {
         .invoke('text').should('equal', '8');
 })
 ```
+
+### Interactions
+- To check the clicked elements and its visibility
+- To Check the count of the checkboxes checked
+- To Check the Radio button selected and not selected
+- To check the value selected from the select dropdown
+- Enable disabled dropdown while selecting a particular value
+- To check the mouse over action using trigger
+
+```shell
+it('Check the count of the checkbox checked', () => {
+    cy.get('[data-cy=checkboxList] > :nth-child(2) input')
+    .should('be.visible')
+    .and('not.be.checked');
+
+    cy.get('[data-cy=checkboxList] > :nth-child(2) input').check();
+
+    cy.get('[data-cy=check-value]')
+        .invoke('text')
+        .should('equal', '1');
+
+    cy.get('[data-cy=checkboxList] > :nth-child(4) input').check();
+
+    cy.get('[data-cy=check-value]')
+        .invoke('text')
+        .should('equal', '2');
+})
+```
+
+## Built With
+
+- [cypress.io](#https://www.cypress.io/) framework used
+
+## Licence
+
+This project is licensed under the MIT License.
