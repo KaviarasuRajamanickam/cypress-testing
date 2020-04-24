@@ -21,7 +21,7 @@ https://github.com/KaviarasuRajamanickam/cypress-dev
 
 ## Installation
 
-- Hope you have installed `node`. if not, please [Download](#https://nodejs.org/en/download/) from here and install
+- Hope you have installed `node`. if not, please [Download](https://nodejs.org/en/download/) from here and install
 
 ### Clone
 
@@ -104,7 +104,7 @@ it('Check the count of the checkbox checked', () => {
 
 ## Built With
 
-- [cypress.io](#https://www.cypress.io/) framework used
+- [cypress.io](https://www.cypress.io/) framework used
 
 ## Licence
 
