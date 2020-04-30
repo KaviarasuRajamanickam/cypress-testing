@@ -37,6 +37,18 @@ https://github.com/KaviarasuRajamanickam/cypress-dev
 npm install
 ```
 
+> Run the development application in the other side, once you did the setup in your local machine
+
+```shell
+npm start
+```
+
+> Change the `baseUrl` in `cypress.json` file depends upon your development application hostname. by default it was
+
+```shell
+"baseUrl": "http://localhost:3001/"
+```
+
 > To run the application
 
 ```shell
@@ -99,6 +111,33 @@ it('Check the count of the checkbox checked', () => {
     cy.get('[data-cy=check-value]')
         .invoke('text')
         .should('equal', '2');
+})
+```
+
+### Test student form
+- To test CRUD functionalities are working properly in a form
+
+```shell
+beforeEach(() => {
+    cy.visit('/example3');
+    cy.get('input[name="name"]').as('name')
+    cy.get('input[name="class"]').as('class')
+    cy.get('select[name="section"]').as('section')
+    cy.get('select[name="gender"]').as('gender')
+    cy.get('[data-cy="add-student"]').as('addBtn')
+    cy.get('[data-cy="cancel-student"]').as('cancelBtn')
+    
+})
+
+it('Check the data entered are updated to the table correctly', () => {
+    cy.get('@name').type('Test name')
+    cy.get('@class').type('Test class')
+    cy.get('@section').select('C')
+    cy.get('@gender').select('Male')
+
+    cy.get('.error').should('not.be', 'visible')
+
+    cy.get('@addBtn').click()
 })
 ```
 
