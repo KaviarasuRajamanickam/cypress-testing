@@ -141,6 +141,32 @@ it('Check the data entered are updated to the table correctly', () => {
 })
 ```
 
+### Test post
+- To test CRUD operations in a post form
+
+```shell
+beforeEach(() => {
+    cy.visit('/example4');
+    
+})
+
+it('Should not allowed to add new post, if the all fields are empty', () => {
+        
+    cy.get('[data-cy="add-post"]').click();        
+    cy.get('[data-cy="post-error"]').should('be', 'visible');
+
+    cy.get('[data-cy="post-title"]').type('Post title1');        
+    cy.get('[data-cy="add-post"]').click();
+    cy.get('[data-cy="post-error"]').should('be', 'visible');
+
+    cy.get('[data-cy="post-title"]').clear();
+    cy.get('[data-cy="post-desc"]').type('Post description1');
+    cy.get('[data-cy="add-post"]').click();
+    cy.get('[data-cy="post-error"]').should('be', 'visible');
+
+})
+```
+
 ## Built With
 
 - [cypress.io](https://www.cypress.io/) framework used
